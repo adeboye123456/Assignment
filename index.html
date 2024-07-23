@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guessing game</title>
+</head>
+<style>
+    body {
+        background-image: url(istockphoto-978387298-612x612.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Courier New', Courier, monospace;
+        
+    }
+
+    .all {
+        width: 900px;
+       margin: auto;
+    }
+
+    .guess {
+        /* font-family: 'Courier New', Courier, monospace; */
+        font-size: 50px;
+        font-weight: 700;
+
+    }
+    .display{
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    #guess {
+        width: 500px;
+        height: 50px;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+        background-color: green;
+
+
+    }
+
+    .but {
+        outline: none;
+        /* font-family: 'Courier New', Courier, monospace; */
+        background-color: brown;
+        border-radius: 5px;
+        border: none;
+        font-weight: 800;
+    }
+    #win{
+        color: black;
+        font-size: 50px;
+        font-weight: 800;
+    }
+</style>
+
+<body>
+
+    <div class="all">
+        <p class="guess">Guess a number between 1-10👇</p>
+
+        <div class="display">
+            <input id="guess" type="number">
+            <button class="but" onclick="game()">CLICK</button>
+        </div>
+        <p id="true"></p>
+        <p id="win"></p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let trueNumber = document.getElementById('true')
+    let won = document.getElementById('win')
+    let guessingNumber = document.getElementById('guess')
+
+    // let randomRoundUpNumber = Math.ceil(Math.random() * 11)
+
+
+    let guess = Math.ceil(Math.random() * 10)
+    console.log(guess);
+    function game() {
+
+
+        if (guessingNumber.value == "") {
+            alert(" input is empty")
+            return
+        } else if (guessingNumber.value > 10) {
+            alert("you cant input a number greater than 10")
+        } else if (guess == guessingNumber.value) {
+            won.innerHTML = "you won 😊"
+        } else {
+            won.innerHTML = "you lose 🤣"
+        }
+
+    }
+
+    // function game( ) {
+    //     if (guessingNumber.innerHTML == Math.ceil(Math.random() * 11)){
+    //         won.innerHTML = 'you won😁😁'
+    //     }else{
+    //         won.innerHTML = 'you lost😭😭'
+    //     }
+    // }
+
+
+
+</script>
